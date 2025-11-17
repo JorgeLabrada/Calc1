@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
+        html, body{
+            height: 100%;
+        }
+
+        header{
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-left: 5%;
+            height: 10%;
+        }
+        
+        main{
+            padding-top: 5%;
+            display: flex;
+            justify-content: center;
+            height: 90%;
+        }
+
+        .proyectos{
+            width: 60%;
+            padding: 10px;
+            background-color: gainsboro;
+            height: 50%;
+            border-radius: 15px;
+        }
+
+        .proyectos table{
+            width: 100%;
+        }
+
+        table a:hover{
+            color: orange;
+        }
+
+        table td{
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+
+        footer{
+            bottom: 0;
+            z-index: 3000;
+            position: fixed;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            background-color: rgba(10, 10, 10, 0.529);
+            width: 100%;
+        }
+
+        footer button{
+            height: 30px;
+            margin-left: 30px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background-color: lightblue;
+        }
+
+        footer button:hover{
+            color: white;
+            transition: 0.3s ease;
+            transform: scale(1.05);
+            background-color: rgb(114, 142, 151);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Proyects</h1>
+    </header>
+    <main>
+        <div id="proyectos" class="proyectos">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of addition</th>
+                    <th>State</th>
+                </tr>
+                <tr>
+                    <td><a href="bf.html">BF calculator</a></td>
+                    <td>17/11/2025</td>
+                    <td>Finished</td>
+                </tr>
+            </table>
+
+        </div>
+    </main>
+    <footer>
+        <button type="button">Insertar nuevo proyecto</button>
+        <button type="button">Eliminar proyectos</button>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+</html>

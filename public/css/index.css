@@ -1,0 +1,58 @@
+/* Placeholder stylesheet for BF calculator page */
+body { font-family: Arial, sans-serif; }
+#results { display: none; flex-direction: column; align-items: center; }
+#diet { display: none; gap: 8px; margin-top: 12px; }
+/* Modal/backdrop styles */
+#modal-backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  display: none;
+}
+
+#results{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 999;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+#close-results{
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Tables inside modal */
+#results table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #f3f3f3; /* light gray */
+}
+
+#results table th,
+#results table td{
+  border: 1px solid #9a9a9a; /* slightly darker border */
+  padding: 8px 10px;
+}
+
+#results table th{
+  background: #e7e7e7;
+  text-align: left;
+}
