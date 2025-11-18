@@ -21,10 +21,11 @@ function calcular(weight, bf, weeks, age, height, sex) {
         (10 * weight) + (6.25 * height) - (5 * age) + (sex === "male" ? 5 : -161)
     );
     const TDEE = Math.round(BMR * 1.2);
-    const caloriesToConsume = TDEE - maximumDeficit;
+    const rawCaloriesToConsume = TDEE - maximumDeficit;
+    const caloriesToConsume = Math.max(rawCaloriesToConsume, 0);
 
     // Color de advertencia si excede 1100 kcal/día
-    const color = maximumDeficit > 1100 ? "red" : "inherit";
+    const color = (maximumDeficit > 1100 || rawCaloriesToConsume <= 0) ? "red" : "inherit";
 
     document.getElementById("1").innerHTML = `
         <tr>
@@ -45,6 +46,7 @@ function calcular(weight, bf, weeks, age, height, sex) {
         <span style="color:${color}">
         With a caloric deficit of ${maximumDeficit} calories/day, 
         you could expect to lose about ${dailyFatLoss} g/day or ${perWeek.toFixed(2)} kg/week.
+        ${rawCaloriesToConsume <= 0 ? '<br/>Note: Calculated intake would be negative; intake shown as 0.' : ''}
         </span>
     `;
 
@@ -109,10 +111,10 @@ function weektable(weight, bf, deficit, weeks, dailyFatLoss, age, height, sex) {
             (10 * currWeight) + (6.25 * height) - (5 * age) + (sex === "male" ? 5 : -161)
         );
         const TDEE = Math.round(BMR * 1.2);
-        const caloriesToConsume = TDEE - newDeficit;
+        const caloriesToConsume = Math.max(TDEE - newDeficit, 0);
 
         const row = document.createElement("tr");
-        const color = newDeficit > 1100 ? "red" : "inherit";
+        const color = (newDeficit > 1100 || (TDEE - newDeficit) <= 0) ? "red" : "inherit";
 
         row.innerHTML = `
             <td>${i}</td>
